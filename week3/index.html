@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 
         <link href='https://fonts.googleapis.com/css?family=Arvo|Alegreya Sans' rel='stylesheet' type='text/css'>
+        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 
         <link href="../css/pig.css" rel="stylesheet" type="text/css" />
         <link href="../css/base.css" rel="stylesheet" />
@@ -215,11 +216,15 @@
             <h2>SQL helps you ask these questions in a way databases understand</h2>
         </div>
 
+        <div class="slide" style="background-image: url(img/streetsblog-january-collisions.png);">
+            <a class="source" href="https://nyc.streetsblog.org/2019/02/04/bloody-january-cyclist-injuries-and-fatalities-soared-last-month/">source</a>
+        </div>
+
         <div class="slide" style="background-image: url(img/carto-table.png);">
         </div>
 
         <div class="slide">
-            <pre><code>SELECT *
+            <pre class="prettyprint"><code>SELECT *
 FROM collisions</code></pre>
         </div>
 
@@ -233,12 +238,12 @@ FROM collisions</code></pre>
 
         <div class="slide">
             <p>if you only want a few columns, list them. for example:</p>
-            <pre><code>SELECT borough, number_of_persons_injured
+            <pre class="prettyprint"><code>SELECT borough, number_of_persons_injured
 FROM collisions</code></pre>
         </div>
 
         <div class="slide">
-            <pre><code>SELECT *
+            <pre class="prettyprint"><code>SELECT *
 FROM collisions
 WHERE number_of_persons_injured &gt; 2</code></pre>
         </div>
@@ -249,7 +254,7 @@ WHERE number_of_persons_injured &gt; 2</code></pre>
 
         <div class="slide">
             <p>these conditions are the same as the ones in CartoCSS:</p>
-            <pre style="margin-left: 250px;"><code>&gt;
+            <pre class="prettyprint" style="margin-left: 250px;"><code>&gt;
 &lt;
 =
 !=
@@ -263,7 +268,7 @@ WHERE number_of_persons_injured &gt; 2</code></pre>
 
         <div class="slide">
             <p>for example:</p>
-            <pre><code>SELECT *
+            <pre class="prettyprint"><code>SELECT *
 FROM collisions
 WHERE number_of_persons_injured &gt; 1
   AND borough = 'STATEN ISLAND'</code></pre>
@@ -274,7 +279,7 @@ WHERE number_of_persons_injured &gt; 1
         </div>
 
         <div class="slide">
-            <pre><code>SELECT *
+            <pre class="prettyprint"><code>SELECT *
 FROM collisions
 WHERE borough = 'QUEENS'
   OR borough = 'BRONX'</code></pre>
@@ -286,7 +291,7 @@ WHERE borough = 'QUEENS'
 
         <div class="slide">
             <p>for example:</p>
-            <pre><code>SELECT *
+            <pre class="prettyprint"><code>SELECT *
 FROM collisions
 WHERE NOT (borough = 'QUEENS'
   OR borough = 'BRONX')</code></pre>
@@ -316,12 +321,12 @@ WHERE NOT (borough = 'QUEENS'
 
         <div class="slide">
             <p>count matching rows:</p>
-            <pre><code>SELECT COUNT(*)
+            <pre class="prettyprint"><code>SELECT COUNT(*)
 FROM collisions</code></pre>
         </div>
 
         <div class="slide">
-            <pre><code>SELECT COUNT(*)
+            <pre class="prettyprint"><code>SELECT COUNT(*)
 FROM collisions
 WHERE zip_code = 10001</code></pre>
         </div>
@@ -351,7 +356,7 @@ WHERE zip_code = 10001</code></pre>
         </div>
 
         <div class="slide">
-            <pre><code>UPDATE collisions
+            <pre class="prettyprint"><code>UPDATE collisions
 SET description = 'deadly'
 WHERE number_of_persons_killed &gt; 0</code></pre>
         </div>
@@ -378,19 +383,19 @@ WHERE number_of_persons_killed &gt; 0</code></pre>
         </div>
 
         <div class="slide">
-            <pre><code>UPDATE collisions
+            <pre class="prettyprint"><code>UPDATE collisions
 SET description = 'deadly'
 WHERE number_of_persons_killed &gt; 0</code></pre>
         </div>
 
         <div class="slide">
-            <pre><code>UPDATE collisions
+            <pre class="prettyprint"><code>UPDATE collisions
 SET description = 'not deadly'
 WHERE number_of_persons_killed = 0</code></pre>
         </div>
 
         <div class="slide">
-            <pre><code>DELETE FROM collisions
+            <pre class="prettyprint"><code>DELETE FROM collisions
 WHERE ...</code></pre>
         </div>
 
@@ -417,7 +422,7 @@ WHERE ...</code></pre>
         </div>
 
         <div class="slide" style="background-image: url(img/airbnb-2.png);">
-            <pre style="margin-top: 75px; background: rgba(255, 255, 255, 0.9); padding: 10px; display: inline-block;"><code>SELECT *
+            <pre class="prettyprint" style="margin-top: 75px; background: rgba(255, 255, 255, 0.9); padding: 10px; display: inline-block;"><code>SELECT *
 FROM rooms
 WHERE id = '4789513'</code></pre>
         </div>
@@ -436,7 +441,7 @@ WHERE id = '4789513'</code></pre>
         </div>
 
         <div class="slide">
-            <pre><code>SELECT *, ST_area(the_geom)
+            <pre class="prettyprint"><code>SELECT *, ST_area(the_geom)
 FROM boundary</code></pre>
         </div>
 
@@ -445,20 +450,20 @@ FROM boundary</code></pre>
         </div>
 
         <div class="slide">
-            <pre style="font-size: 35px; line-height: 45px;"><code>SELECT *,
+            <pre class="prettyprint" style="font-size: 35px; line-height: 45px;"><code>SELECT *,
   ST_area(ST_transform(the_geom_webmercator, 2263))
 FROM boundary</code></pre>
         </div>
 
         <div class="slide">
-            <pre style="font-size: 35px; line-height: 45px;"><code>SELECT *,
+            <pre class="prettyprint" style="font-size: 35px; line-height: 45px;"><code>SELECT *,
   ST_area(ST_transform(the_geom_webmercator, 2263))
 FROM boundary</code></pre>
             <h2>(reproject to EPSG:2263, then calculate the area)</h2>
         </div>
 
         <div class="slide">
-            <pre style="font-size: 35px; line-height: 45px;"><code>SELECT *
+            <pre class="prettyprint" style="font-size: 35px; line-height: 45px;"><code>SELECT *
 FROM collisions
 WHERE ST_DWithin(
   the_geom::geography,
@@ -468,7 +473,7 @@ WHERE ST_DWithin(
         </div>
 
         <div class="slide">
-            <pre style="font-size: 35px; line-height: 45px;"><code>SELECT *
+            <pre class="prettyprint" style="font-size: 35px; line-height: 45px;"><code>SELECT *
 FROM collisions
 WHERE ST_DWithin(
   the_geom::geography,
@@ -485,7 +490,7 @@ WHERE ST_DWithin(
         </div>
 
         <div class="slide">
-            <pre><code>SELECT cartodb_id,
+            <pre class="prettyprint"><code>SELECT cartodb_id,
   ST_Transform(the_geom, 3573)
     AS the_geom_webmercator
 FROM my_table</code></pre>
