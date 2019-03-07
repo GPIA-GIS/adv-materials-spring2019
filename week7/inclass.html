@@ -1,0 +1,136 @@
+<html>
+  <head>
+    <title>In-class Exercise | Advanced GIS</title>
+    <link href='https://fonts.googleapis.com/css?family=Arvo|Alegreya Sans' rel='stylesheet' type='text/css'>
+    <link href="../css/pages.css" rel="stylesheet" type="text/css" />
+    <link href="../css/inclass.css" rel="stylesheet" />
+  </head>
+  <body>
+    <main>
+    <header>
+      <a href="..">Advanced GIS</a>
+      <h1>In-class Exercise: JavaScript</h1>
+    </header>
+
+    <section>
+      <h2>Part 1: Arrays</h2>
+      <ol>
+        <li>Open <a href="https://whispering-sofa.glitch.me/">this glitch site</a> in your browser and open developer tools.</li>
+        <li>Go to the console and type <code>lifeStages</code> and press <code>Enter</code></li>
+        <li>Also in the console, type <pre><code>lifeStages[0]</code></pre> and press <code>Enter</code> to see just the first element in the array.</li>
+          <li>Do the same for the second and third items in <code>lifeStages</code>.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Part 2: Objects</h2>
+      <ol>
+        <li>Open <a href="https://solid-leaf.glitch.me/">this glitch site</a> in your browser and open developer tools.</li>
+        <li>In the console, type <code>coordinates</code> and press <code>Enter</code>. You should see an object with two properties.</li>
+        <li>Still in the console, type <code>coordinates.latitude</code> and press <code>Enter</code>.</li>
+        <li>In a similar way, get the longitude from <code>coordinates</code>.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Part 3: Functions</h2>
+      <ol>
+        <li>Continue working on your copy of <a href="https://glitch.com/edit/#!/dandelion-milk">this Glitch site</a> from last week. (Ideally you'll work on the one you edited that uses your Carto account and data.)</li>
+        <li>We're going to work with the variable called <code>map</code> that is created on line 4. At the very bottom of the file, add a new line:
+          <pre><code>map.setZoom(10);</code></pre>
+        </li>
+        <li>Look at the live view of the Glitch site&mdash;you should see that the map is zoomed in more than it was before.</li>
+        <li>You can type JavaScript code in <strong>Developer Tools</strong>, too. This is exactly the same as adding a line at the end of your file as we just did. This can be a nice way to experiment with code before putting it in your file. Open <strong>Developer Tools</strong>, to to the <strong>Console</strong> tab, and zoom out: type
+          <pre><code>map.setZoom(5)</code></pre>
+          then press <code>Enter</code>.
+        </li>
+        <li>Let's confirm that the map is zoomed to the level we asked for. Type <pre><code>map.getZoom()</code></pre> on the console and you should see the zoom level on the console.</li>
+          <li>Try some other functions on the map in the console:
+            <pre><code>map.zoomIn()
+map.zoomOut()
+map.setView([0, 0], 2)</code></pre>
+          </li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Part 4: SQL data sources</h2>
+      <ol>
+        <li>Continue working on the Glitch site from the previous exercise.</li>
+        <li>Find the line where the data source is created. In the original Glitch site, that's <strong>line 18</strong>:
+          <pre><code>var source = new carto.source.Dataset('hms_efh_2009tiger_shark');</code></pre>
+        </li>
+        <li>Change that line to use SQL. For the shark data this looks like:
+          <pre><code>var source = new carto.source.SQL('SELECT * FROM hms_efh_2009tiger_shark');</code></pre>
+          We changed <code>Dataset</code> to <code>SQL</code> and replaced the name of the dataset with an SQL query selecting all of the data from that dataset.
+        </li>
+        <li>View the site and confirm that it still works&mdash;nothing noticeable should have changed.</li>
+        <li>Using SQL, filter the data. On the same line, add a <code>WHERE</code> condition. For example:
+          <pre><code>var source = new carto.source.SQL("SELECT * FROM hms_efh_2009tiger_shark WHERE life_stage = 'Juvenile'");</code></pre>
+          (Note that we are using <code>"</code> around the SQL here since <code>Juvenile</code> needs to be in <code>'</code>.)
+        </li>
+        <li>Change the SQL back to get all the data (no <code>WHERE</code>).</li>
+        <li>It is possible to change the SQL on a layer later on in the code. Open the <strong>Developer Tools</strong> and go to the <strong>Console</strong> tab and set the SQL on your layer:
+          <pre><code>source.setQuery("SELECT * FROM hms_efh_2009tiger_shark WHERE life_stage = 'Juvenile'")</code></pre>
+          You should see the number of features on your map filter down to just the ones in your new SQL query.
+        </li>
+        <li>Still in the console, try filtering the data again, then set it back to getting all of the data:
+          <pre><code>source.setQuery("SELECT * FROM hms_efh_2009tiger_shark")</code></pre>
+        </li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Part 5: Use a button to set the SQL of a layer</h2>
+      <ol>
+        <li>Start from <a href="https://glitch.com/edit/#!/carto-buttons">this Glitch site</a>.</li>
+        <li>Look at the site using <strong>Show Live</strong> and confirm that the button works.</li>
+        <li>Add another button in the HTML and set its class to something other than the existing button's class. For example, we have:
+          <pre><code>&lt;div class="buttons"&gt;
+    &lt;button class="juvenile-button"&gt;
+        just show Juvenile habitat
+    &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+          and you should work toward:
+          <pre><code>&lt;div class="buttons"&gt;
+    &lt;button class="juvenile-button"&gt;
+        just show Juvenile habitat
+    &lt;/button&gt;
+    <strong>&lt;button class="adult-button"&gt;
+        just show Adult habitat
+    &lt;/button&gt;</strong>
+&lt;/div&gt;</code></pre>
+        </li>
+        <li>In the JavaScript, copy and paste <strong>lines 46 - 55</strong>. In the pasted lines, change the class to match the new button's and change the SQL to filter the data another way. The code might start as:
+          <pre><code>// Step 1: Find the button by its class. If you are using a different class, change this.
+var juvenileButton = document.querySelector('.juvenile-button');
+
+// Step 2: Add an event listener to the button. We will run some code whenever the button is clicked.
+juvenileButton.addEventListener('click', function (e) {
+  source.setQuery("SELECT * FROM hms_efh_2009tiger_shark WHERE life_stage = 'Juvenile'");
+
+  // Sometimes it helps to log messages, here we log to let us know the button was clicked. You can see this if you open developer tools and look at the console.
+  console.log('Juvenile was clicked');
+});</code></pre>
+          and you want to change the variable name, class, and SQL. You should end up with something like:
+          <pre><code>// Step 1: Find the button by its class. If you are using a different class, change this.
+var <strong>adultButton</strong> = document.querySelector('<strong>.adult-button</strong>');
+
+// Step 2: Add an event listener to the button. We will run some code whenever the button is clicked.
+<strong>adultButton</strong>.addEventListener('click', function (e) {
+  source.setQuery("SELECT * FROM hms_efh_2009tiger_shark WHERE life_stage = '<strong>Adult</strong>'");
+
+  // Sometimes it helps to log messages, here we log to let us know the button was clicked. You can see this if you open developer tools and look at the console.
+  console.log('<strong>Adult</strong> was clicked');
+});</code></pre>
+        </li>
+        <li>Time permitting, try the above again with the <strong>Neonate</strong> life stage.</li>
+      </ol>
+    </section>
+
+    <footer>
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Advanced GIS</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://ebrelsford.github.io/" property="cc:attributionName" rel="cc:attributionURL">Eric Brelsford</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    </footer>
+    </main>
+  </body>
+</html>

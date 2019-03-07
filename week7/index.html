@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Class 7 | Advanced GIS</title>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+        <link href="https://fonts.googleapis.com/css?family=Arvo|Alegreya+Sans" rel="stylesheet" type="text/css">
+
+        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+        <link href="../css/pig.css" rel="stylesheet" type="text/css" />
+        <link href="../css/base.css" rel="stylesheet" />
+
+        <script src="../js/pig.js"></script>
+    </head>
+    <body>
+
+        <div class="slide">
+            <p>Welcome to Advanced GIS, Lecture 7</p>
+            <p>This is a web page that can be viewed as slides.</p>
+            <p>→ to move forward</p>
+            <p>← to go back</p>
+        </div>
+
+        <div class="slide">
+            <h1>Advanced GIS</h1>
+            <p>Class 7</p>
+        </div>
+
+        <div class="slide" style="background-image: url(img/assignment-khadija.png);">
+            <a href="http://assignment-6-dev.glitch.me/" class="source">Khadija</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/assignment-nicola.png);">
+            <a href="https://wow-food-really-does-come-from-far-away.glitch.me/" class="source">Nico</a>
+        </div>
+
+        <div class="slide intermission"></div>
+
+        <div class="slide" style="background-image: url(img/carto-single-layer.png);">
+            <a href="https://dandelion-milk.glitch.me/" class="source">source</a>
+        </div>
+
+        <div class="slide">
+            <ol>
+                <li>load Carto and Leaflet libraries</li>
+                <li>make a place for the map to go</li>
+                <li>tell Carto and Leaflet to create the map</li>
+            </ol>
+        </div>
+
+        <div class="slide" style="background-image: url(img/leaflet.png); background-size: 30%;">
+            <a class="source" href="http://leafletjs.com/">source</a>
+        </div>
+
+        <div class="slide">
+            <h2>a few things leaflet does:</h2>
+        </div>
+
+        <div class="slide" style="background-image: url(img/leaflet-tiles.gif);">
+            <h2>tiles</h2>
+        </div>
+
+        <div class="slide" style="background-image: url(img/leaflet-popups.gif);">
+            <h2>popups</h2>
+        </div>
+
+        <div class="slide" style="background-image: url(img/leaflet-zoom-and-pan.gif);">
+            <h2>zoom and pan</h2>
+        </div>
+
+        <div class="slide">
+            <h2>leaflet is used all over the place</h2>
+        </div>
+
+        <div class="slide">
+            <h2>leaflet is used all over the place</h2>
+            <img style="float: left; max-width: 25%;" src="img/carto.png" />
+        </div>
+
+        <div class="slide">
+            <h2>leaflet is used all over the place</h2>
+            <img style="float: left; max-width: 25%;" src="img/carto.png" />
+            <img style="float: left; max-width: 25%; background: white;" src="img/osm.svg" />
+        </div>
+
+        <div class="slide">
+            <h2>leaflet is used all over the place</h2>
+            <img style="float: left; max-width: 25%;" src="img/carto.png" />
+            <img style="float: left; max-width: 25%; background: white;" src="img/osm.svg" />
+            <p style="clear: both;">+ tons of other sites with maps on them</p>
+        </div>
+
+        <div class="slide" style="background-image: url(img/urban-reviewer.png);">
+          <a class="source" href="http://www.urbanreviewer.org/#map=12/40.7400/-73.9462">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/urban-reviewer-attribution.png);">
+          <a class="source" href="http://www.urbanreviewer.org/#map=12/40.7400/-73.9462">source</a>
+        </div>
+
+        <div class="slide">
+            <h2>why's it so popular?</h2>
+        </div>
+
+        <div class="slide">
+            <h2>you can use it for free forever</h2>
+        </div>
+
+        <div class="slide">
+            <h2>you can use it for free forever (as long as you have a place to host your site)</h2>
+        </div>
+
+        <div class="slide">
+            <h2>you can use it for free forever (as long as you have a place to host your site)</h2>
+        </div>
+
+        <div class="slide">
+            <h2>plugins</h2>
+        </div>
+
+        <div class="slide" style="background-image: url(img/leaflet-globe.png);">
+          <a class="source" href="http://chriswhong.github.io/leaflet-globeminimap/example/">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/leaflet-timeline.png);">
+          <a class="source" href="http://skeate.github.io/Leaflet.timeline/borders.html">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/leaflet-control-geocoder.png);">
+            <a href="https://github.com/perliedman/leaflet-control-geocoder" target="_blank" class="source">leaflet-control-geocoder</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/leaflet-control-geocoder-demo.png);">
+            <a href="http://www.liedman.net/leaflet-control-geocoder/" target="_blank" class="source">leaflet-control-geocoder</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/leaflet-minimap.png);">
+            <a href="https://github.com/Norkart/Leaflet-MiniMap" target="_blank" class="source">Leaflet.MiniMap</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/leaflet-minimap-demo.png);">
+            <a href="http://norkart.github.io/Leaflet-MiniMap/example.html" target="_blank" class="source">Leaflet.MiniMap</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/leaflet-markercluster.png);">
+            <a href="https://github.com/Leaflet/Leaflet.markercluster" target="_blank" class="source">leaflet-markercluster</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/leaflet-markercluster-demo.gif);">
+            <a href="http://leaflet.github.io/Leaflet.markercluster/example/marker-clustering-realworld.388.html" target="_blank" class="source">leaflet-markercluster</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/leaflet-realtime.png);">
+            <a href="https://github.com/perliedman/leaflet-realtime" target="_blank" class="source">leaflet-realtime</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/leaflet-realtime-demo.gif);">
+            <a href="http://www.liedman.net/leaflet-realtime/busses.html" target="_blank" class="source">leaflet-realtime</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/leaflet-draw.png);">
+            <a href="https://github.com/Leaflet/Leaflet.draw" target="_blank" class="source">Leaflet.draw</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/leaflet-draw-demo.png);">
+            <a href="http://leaflet.github.io/Leaflet.draw/" target="_blank" class="source">Leaflet.draw</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/leaflet-mappaint.png);">
+            <a href="https://github.com/SINTEF-9012/Leaflet.MapPaint" target="_blank" class="source">Leaflet.MapPaint</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/leaflet-mappaint-demo.png);">
+            <a href="http://sintef-9012.github.io/Leaflet.MapPaint/" target="_blank" class="source">Leaflet.MapPaint</a>
+        </div>
+
+        <div class="slide intermission"></div>
+
+        <div class="slide">
+            <h2>variables</h2>
+        </div>
+
+        <div class="slide">
+            <h2>variables hold on to things so you can use them later</h2>
+        </div>
+
+        <div class="slide">
+            <h2>variables can be numbers</h2>
+            <pre class="prettyprint"><code>var size = 5;</code></pre>
+        </div>
+
+        <div class="slide">
+            <h2>and you can do math on them</h2>
+            <pre class="prettyprint"><code>var size = 5 * 1000;</code></pre>
+        </div>
+
+        <div class="slide">
+            <h2>variables can also be strings (text)</h2>
+            <pre class="prettyprint"><code>var greeting = 'Hello world';</code></pre>
+        </div>
+
+        <div class="slide">
+            <h2>and you can add strings together</h2>
+            <pre class="prettyprint" style="font-size: 35px; line-height: 45px;"><code>var query = 'SELECT * FROM listings';
+query + ' WHERE price &gt; 100';</code></pre>
+        </div>
+
+        <div class="slide">
+            <h2>variables can also be other things like maps</h2>
+        </div>
+
+        <div class="slide">
+            <h2>variables can also be other things like maps</h2>
+            <pre class="prettyprint"><code>var map = L.map('map');</code></pre>
+        </div>
+
+        <div class="slide">
+            <h2>variables can only have characters and numbers in their names</h2>
+        </div>
+
+        <div class="slide">
+            <h2>so don't to this:</h2>
+            <pre class="prettyprint"><code>var <span class="highlighted">shark map</span> = L.map('map');</code></pre>
+        </div>
+
+        <div class="slide">
+            <h2>and don't to this:</h2>
+            <pre class="prettyprint"><code>var <span class="highlighted">shark-map</span> = L.map('map');</code></pre>
+        </div>
+
+        <div class="slide">
+            <h2>do this instead:</h2>
+            <pre class="prettyprint"><code>var <span class="highlighted">sharkMap</span> = L.map('map');</code></pre>
+        </div>
+
+        <div class="slide">
+            <h2>arrays</h2>
+        </div>
+
+        <div class="slide">
+            <h2>arrays are lists of things</h2>
+        </div>
+
+        <div class="slide">
+            <pre class="prettyprint"><code>var lifeStages = [
+    'Neonate',
+    'Juvenile',
+    'Adult'
+];</code></pre>
+        </div>
+
+        <div class="slide">
+            <pre class="prettyprint"><code>var ratings = [
+    5,
+    3,
+    4.5
+];</code></pre>
+        </div>
+
+        <div class="slide">
+            <pre class="prettyprint"><code>var lifeStages = [
+    'Neonate',
+    'Juvenile',
+    'Adult'
+];</code></pre>
+        </div>
+
+        <div class="slide">
+            <pre class="prettyprint"><code>var lifeStages = [
+    'Neonate',
+    'Juvenile',
+    'Adult'
+];</code></pre>
+            <code>lifeStages[0]</code> is 'Neonate'
+        </div>
+
+        <div class="slide">
+            <pre class="prettyprint"><code>var lifeStages = [
+    'Neonate',
+    'Juvenile',
+    'Adult'
+];</code></pre>
+            <code>lifeStages[1]</code> is 'Juvenile'
+        </div>
+
+        <div class="slide">
+            <h2><a href="inclass.html" target="_blank">in-class exercise, part 1</a></h2>
+        </div>
+
+        <div class="slide">
+            <h2>objects</h2>
+        </div>
+
+        <div class="slide">
+            <h2>objects store structured data</h2>
+        </div>
+
+        <div class="slide">
+            <pre class="prettyprint"><code>var coordinates = {
+    latitude: 41.56,
+    longitude: -73.29
+};</code></pre>
+        </div>
+
+        <div class="slide">
+            <h2>you can think of objects like dictionaries of keys and values</h2>
+        </div>
+
+        <div class="slide">
+            <pre class="prettyprint"><code>var coordinates = {
+    latitude: 41.56,
+    longitude: -73.29
+};</code></pre>
+            <code>coordinates.latitude</code> is 41.56
+        </div>
+
+        <div class="slide">
+            <h2>sometimes with "" around keys</h2>
+            <pre class="prettyprint"><code>var coordinates = {
+    "latitude": 41.56,
+    "longitude": -73.29
+};</code></pre>
+        </div>
+
+        <div class="slide">
+            <h2>you'll see objects when setting options:</h2>
+            <pre class="prettyprint"><code>var map = L.map('map', {
+  center: [30, 0],
+  zoom: 3
+});</code></pre>
+        </div>
+
+        <div class="slide">
+            <h2>you'll see objects when setting options:</h2>
+            <pre class="prettyprint"><code>var map = L.map('map', <span class="highlighted">{
+  center: [30, 0],
+  zoom: 3
+}</span>);</code></pre>
+        </div>
+
+        <div class="slide">
+            <h2><a href="inclass.html" target="_blank">in-class exercise, part 2</a></h2>
+        </div>
+
+        <div class="slide">
+            <h2>functions</h2>
+        </div>
+
+        <div class="slide">
+            <h2>functions are small pieces of reusable code</h2>
+        </div>
+
+        <div class="slide">
+            <pre class="prettyprint" style="font-size: 40px; line-height: 50px;"><code>var source = new carto.source.Dataset('hms_efh_2009tiger_shark');</code></pre>
+        </div>
+
+        <div class="slide">
+            <pre class="prettyprint"><code>alert('NO');</code></pre>
+        </div>
+
+        <div class="slide">
+            <pre class="prettyprint"><code>console.log('The code got here');</code></pre>
+        </div>
+
+        <div class="slide">
+            <pre class="prettyprint"><code>Math.max(2, 25);</code></pre>
+        </div>
+
+        <div class="slide">
+            <pre class="prettyprint" style="font-size: 40px; line-height: 50px;"><code>var source = new carto.source.Dataset(<span class="highlighted">'hms_efh_2009tiger_shark'</span>);</code></pre>
+            <h2>parameters</h2>
+        </div>
+
+        <div class="slide">
+            <h2>parameters affect the way a function works</h2>
+        </div>
+
+        <div class="slide">
+            <pre class="prettyprint" style="font-size: 40px; line-height: 50px;"><code>var source = new carto.source.Dataset(<span class="highlighted">'hms_efh_2009tiger_shark'</span>);</code></pre>
+            <h2>when you change this text, the function gets a different dataset for you</h2>
+        </div>
+
+        <div class="slide">
+            <h2><a href="inclass.html" target="_blank">in-class exercise, part 3</a></h2>
+        </div>
+
+        <div class="slide intermission"></div>
+
+        <div class="slide">
+            <pre class="prettyprint" style="font-size: 45px; line-height: 55px;"><code>var source = new carto.source.Dataset('hms_efh_2009tiger_shark');</code></pre>
+        </div>
+
+        <div class="slide">
+            <pre class="prettyprint" style="font-size: 45px; line-height: 55px;"><code>var source = new carto.source.Dataset('hms_efh_2009tiger_shark');</code></pre>
+            <h2>asks Carto for the dataset called <code>hms_efh_2009tiger_shark</code></h2>
+        </div>
+
+        <div class="slide">
+            <h2>if we want to change the SQL we need to load the data a little differently</h2>
+        </div>
+
+        <div class="slide">
+            <pre class="prettyprint" style="font-size: 35px; line-height: 45px;"><code>var source = new carto.source.SQL('SELECT * FROM hms_efh_2009tiger_shark');</code></pre>
+        </div>
+
+        <div class="slide">
+            <h2>get all of the data in the dataset:</h2>
+            <pre class="prettyprint" style="font-size: 35px; line-height: 45px;"><code>var source = new carto.source.Dataset('hms_efh_2009tiger_shark');</code></pre>
+            <h2>get data matching a query:</h2>
+            <pre class="prettyprint" style="font-size: 35px; line-height: 45px;"><code>var source = new carto.source.SQL('SELECT * FROM hms_efh_2009tiger_shark');</code></pre>
+        </div>
+
+        <div class="slide">
+            <h2>then later in our code we can change the SQL</h2>
+        </div>
+
+        <div class="slide">
+            <pre class="prettyprint" style="font-size: 25px; line-height: 35px;"><code>source.setQuery("SELECT * FROM hms_efh_2009tiger_shark WHERE life_stage = 'Juvenile'");</code></pre>
+        </div>
+
+        <div class="slide">
+            <h2><a href="inclass.html" target="_blank">in-class exercise, part 4</a></h2>
+        </div>
+
+        <div class="slide">
+            <h2>let's make a button that changes what's on the map</h2>
+        </div>
+
+        <div class="slide" style="background-image: url(img/carto-button.png);">
+            <h2>like this one</h2>
+            <a href="https://glitch.com/edit/#!/carto-buttons" class="source">source</a>
+        </div>
+
+        <div class="slide">
+            <h2>three steps:</h2>
+            <ol>
+                <li>create a button</li>
+                <li>listen for a click on the button</li>
+                <li>change the layer's SQL</li>
+            </ol>
+        </div>
+
+        <div class="slide">
+            <h2>look at <a href="https://glitch.com/edit/#!/carto-buttons">the example</a></h2>
+        </div>
+
+        <div class="slide">
+            <h2>1. create a button</h2>
+            <pre class="prettyprint"><code>&lt;button class="juvenile-button"&gt;
+  just show Juvenile habitat
+&lt;/button&gt;</code></pre>
+        </div>
+
+        <div class="slide" style="background-image: url(img/juvenile-button.png);">
+        </div>
+
+        <div class="slide">
+            <h2>2. listen for a click on the button</h2>
+            <pre class="prettyprint" style="font-size: 50px; line-height: 60px;"><code>juvenileButton.addEventListener('click', function (e) {
+  ...
+});</code></pre>
+        </div>
+
+        <div class="slide">
+            <h2>3. change the layer's SQL</h2>
+            <pre class="prettyprint" style="font-size: 25px; line-height: 35px;"><code>juvenileButton.addEventListener('click', function (e) {
+  source.setQuery("SELECT * FROM hms_efh_2009tiger_shark WHERE life_stage = 'Juvenile'");
+});</code></pre>
+        </div>
+
+        <div class="slide">
+            <h2>let's work with some buttons</h2>
+            <h2><a href="inclass.html" target="_blank">in-class exercise, part 5</a></h2>
+        </div>
+
+        <div class="slide">
+            <h2>you can do similar things with other inputs</h2>
+        </div>
+
+        <div class="slide" style="background-image: url(img/carto-text-input.png);">
+            <a href="https://glitch.com/edit/#!/carto-text-input" class="source">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/carto-dropdown.png);">
+            <a href="https://glitch.com/edit/#!/carto-dropdown" class="source">source</a>
+        </div>
+
+        <div class="slide">
+            <h2>we'll talk more about these next time</h2>
+        </div>
+
+        <div class="slide intermission"></div>
+
+        <div class="slide" style="background-image: url(img/carto-popups.png);">
+            <a href="https://glitch.com/edit/#!/carto-popups" class="source">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/carto-popups-code-0.png);">
+            <a href="https://glitch.com/edit/#!/carto-popups" class="source">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/carto-popups-code-0.png);">
+            <h2>1. when creating the layer, tell Carto which fields are allowed in the popup</h2>
+            <a href="https://glitch.com/edit/#!/carto-popups" class="source">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/carto-popups-fields.png);">
+        </div>
+
+        <div class="slide" style="background-image: url(img/carto-popups-fields.png);">
+            <h2>like when you tell Carto which fields are in the popup</h2>
+        </div>
+
+        <div class="slide" style="background-image: url(img/carto-popups-code-1.png);">
+            <a href="https://glitch.com/edit/#!/carto-popups" class="source">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/carto-popups-code-1.png);">
+            <h2>make an HTML string that goes into the popup</h2>
+            <a href="https://glitch.com/edit/#!/carto-popups" class="source">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/carto-popups-code-1.png);">
+            <h2>this can be basically any HTML you can imagine, including video, images, and audio</h2>
+            <a href="https://glitch.com/edit/#!/carto-popups" class="source">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/carto-popups-code-1.png);">
+            <h2>start simple and add to it</h2>
+            <a href="https://glitch.com/edit/#!/carto-popups" class="source">source</a>
+        </div>
+
+    </body>
+</html>
