@@ -567,6 +567,21 @@ WHERE ST_Within(
             <a href="http://postgis.refractions.net/docs/" class="source">source</a>
         </div>
 
+        <div class="slide" style="background-image: url(img/spatial-sql-borough.png);">
+        </div>
+
+        <div class="slide" style="background-image: url(img/spatial-sql-borough.png);">
+          <h2>you can look at relationships between layers, too</h2>
+        </div>
+
+        <div class="slide" style="background-image: url(img/spatial-sql-borough.png);">
+          <pre style="background: rgba(255, 255, 255, 0.8);"><code>SELECT collisions.*
+FROM collisions
+JOIN ny_boroughs ON 
+  ST_Within(collisions.the_geom, ny_boroughs.the_geom)
+WHERE ny_boroughs.boroname = 'Bronx'</code></pre>
+        </div>
+
         <div class="slide">
             <h2><a href="inclass.html" target="_blank">in-class exercise, part 2</a></h2>
         </div>
