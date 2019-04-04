@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Class 10 | Advanced GIS</title>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+        <link href='https://fonts.googleapis.com/css?family=Arvo|Alegreya Sans' rel='stylesheet' type='text/css'>
+
+        <link href="../css/pig.css" rel="stylesheet" type="text/css" />
+        <link href="../css/base.css" rel="stylesheet" />
+
+        <script src="../js/pig.js"></script>
+    </head>
+    <body>
+
+        <div class="slide">
+            <p>Welcome to Advanced GIS, Lecture 10</p>
+            <p>This is a web page that can be viewed as slides.</p>
+            <p>→ to move forward</p>
+            <p>← to go back</p>
+        </div>
+
+        <div class="slide">
+            <h1>Advanced GIS</h1>
+            <p>Class 10</p>
+        </div>
+
+        <div class="slide" style="background-image: url(img/assignment-daniel.png);">
+            <a href="https://daniel-spager.glitch.me/" class="source">Daniel</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/assignment-hugo.png);">
+            <a href="https://hugoassignment8.glitch.me/" class="source">Hugo</a>
+        </div>
+
+        <div class="slide intermission"></div>
+
+        <div class="slide" style="background-image: url(img/css-select.png);">
+            <a href="http://filamentgroup.github.io/select-css/demo/" class="source">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/css-select.png);">
+            <h2>customizing <code>select</code>s with CSS</h2>
+            <a href="http://filamentgroup.github.io/select-css/demo/" class="source">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/css-select-code.png);">
+            <a href="http://filamentgroup.github.io/select-css/demo/" class="source">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/css-select-code-highlight.png);">
+            <a href="http://filamentgroup.github.io/select-css/demo/" class="source">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/css-select-code-highlight.png);">
+            <h2><code>appearance: none;</code></h2>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/appearance" class="source">appearance</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/css-select-code-highlight.png);">
+            <h2><code>appearance: none;</code></h2>
+            <h2>removes dropdown styles</h2>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/appearance" class="source">appearance</a>
+        </div>
+
+        <div class="slide intermission"></div>
+
+        <div class="slide">
+            <h2>making base maps</h2>
+        </div>
+
+        <div class="slide">
+            <h2>most webmaps use raster tiles</h2>
+        </div>
+
+        <div class="slide" style="background-image: url(img/tiles.gif);">
+            <a href="http://maptimeboston.github.io/web-maps-101/#17" class="source">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/tiles.gif);">
+            <h2>raster tiles are 256 x 256 pixel images</h2>
+        </div>
+
+        <div class="slide" style="background-image: url(img/tiles.gif);">
+            <h2>they use the same <em>zoom</em>, <em>x</em>, and <em>y</em> values, so they're interchangeable</h2>
+        </div>
+
+        <div class="slide" style="background-image: url(img/tiles-zoom0.png);">
+            <h2>each tile is just an image on the internet</h2>
+        </div>
+
+        <div class="slide" style="background-image: url(img/tiles-zoom0.png);">
+            <p style="background: white;">http://a.tile.stamen.com/toner/0/0/0.png</p>
+        </div>
+
+        <div class="slide" style="background-image: url(img/openwhatevermap.png);">
+            <a href="http://www.openwhatevermap.xyz/" class="source">openwhatevermap.xyz</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/tiles-zoom-2.jpg);">
+            <a href="http://maptimeboston.github.io/web-maps-101/#17" class="source">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/tiles-zoom-3.jpg);">
+            <a href="http://maptimeboston.github.io/web-maps-101/#17" class="source">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/tiles-zoom-3.jpg);">
+            <h2>as you zoom in, the number of tiles quadruples</h2>
+        </div>
+
+        <div class="slide" style="background-image: url(img/tiles-zoom-3.jpg);">
+            <h2>if you made tiles for all of zoom 18 you'd have <em>billions</em> of images</h2>
+        </div>
+
+        <div class="slide" style="background-image: url(img/tiles-loading.gif);">
+            <h2>that's why browsers only load what you need to see</h2>
+            <a href="http://maptimeboston.github.io/web-maps-101/#17" class="source">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/cake.jpg);">
+            <h2>if your base map is a cake</h2>
+            <a class="source" href="https://smittenkitchen.com/2012/09/roasted-apple-spice-sheet-cake/">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/cake-ingredients.jpg);">
+            <h2>the datasets that go into the base map are the ingredients</h2>
+            <a class="source" href="https://smittenkitchen.com/2012/09/roasted-apple-spice-sheet-cake/">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/cake-slice.jpg);">
+            <h2>you might think of tiles as slices of a big cake</h2>
+            <a class="source" href="https://smittenkitchen.com/2012/09/roasted-apple-spice-sheet-cake/">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/cake-slice.jpg);">
+            <h2>a server somewhere turns the data into images</h2>
+            <a class="source" href="https://smittenkitchen.com/2012/09/roasted-apple-spice-sheet-cake/">source</a>
+        </div>
+
+        <div class="slide intermission"></div>
+
+        <div class="slide">
+            <h2>so how do you <em>make</em> base maps?</h2>
+        </div>
+
+        <div class="slide">
+            <h2>it depends!</h2>
+        </div>
+
+        <div class="slide">
+            <h2>in theory you can make tiles on your own</h2>
+        </div>
+
+        <div class="slide">
+            <h2>many mapmakers turn to Mapbox</h2>
+        </div>
+
+        <div class="slide" style="background-image: url(img/mapbox-studio.png);">
+            <a href="https://www.mapbox.com/mapbox-studio/" class="source">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/mapbox-studio.png);">
+            <h2>Mapbox provides (modified) OpenStreetMap data</h2>
+        </div>
+
+        <div class="slide intermission"></div>
+
+        <div class="slide">
+            <h2>creating styles</h2>
+        </div>
+
+        <div class="slide" style="background-image: url(img/mapbox-studio-feature-layer.png);">
+        </div>
+
+        <div class="slide" style="background-image: url(img/mapbox-studio-layer.png);">
+        </div>
+
+        <div class="slide" style="background-image: url(img/mapbox-studio-color.png);">
+        </div>
+
+        <div class="slide" style="background-image: url(img/mapbox-studio-zoom-0.png);">
+        </div>
+
+        <div class="slide" style="background-image: url(img/mapbox-studio-zoom-1.png);">
+        </div>
+
+        <div class="slide" style="background-image: url(img/mapbox-studio-field.png);">
+        </div>
+
+        <div class="slide" style="background-image: url(img/mapbox-studio-filter-data.png);">
+        </div>
+
+        <div class="slide" style="background-image: url(img/mapbox-studio-publish.png);">
+        </div>
+
+        <div class="slide">
+            <h2><a href="inclass.html" target="_blank">in-class exercise, part 1</a></h2>
+        </div>
+
+        <div class="slide intermission"></div>
+
+        <div class="slide">
+            <h2>how should we design base maps?</h2>
+        </div>
+
+        <div class="slide">
+            <h2>not too differently from offline maps</h2>
+        </div>
+
+        <div class="slide">
+            <h2>think about:</h2>
+            <ul style="list-style: disc; padding-left: 50px;">
+                <li>scale</li>
+                <li>hierarchy</li>
+                <li>color</li>
+                <li>symbology</li>
+            </ul>
+        </div>
+
+        <div class="slide" style="background-image: url(img/scale.jpg);">
+            <h2>scale</h2>
+        </div>
+
+        <div class="slide">
+            <h2>hierarchy</h2>
+            <p>"Important things must look important, and the most important thing should look the most important."</p>
+            <a class="source" href="http://books.google.com/books?id=vF0Chp0YZn0C">
+                Understanding Different Geographies
+            </a>
+        </div>
+
+        <div class="slide">
+            <h2>color</h2>
+            <p>Think about what the colors you are using mean to the viewer.</p>
+            <p>Use contrast to your advantage.</p>
+        </div>
+
+        <div class="slide" style="background-image: url(img/symbols.png);">
+            <h2>symbology</h2>
+            <a class="source" href="http://www.svgopen.org/2008/papers/41-MapViewSVG__an_extension_for_ESRI_GIS_and_Mapping_Software/">source</a>
+        </div>
+
+        <div class="slide">
+            <h2>and consider how your data will look on top of it</h2>
+        </div>
+
+        <div class="slide" style="background-image: url(img/surging-seas.png);">
+            <a class="source" href="https://ss2.climatecentral.org/#12/40.6211/-73.9170?show=satellite&projections=0-K14_RCP85-SLR&level=9&unit=feet&pois=hide">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/wapo-renters.png);">
+            <a class="source" href="https://www.washingtonpost.com/news/wonk/wp/2016/05/25/how-much-a-decent-apartment-costs-you-in-every-county/?noredirect=on&utm_term=.32ddb5129c24">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/census-hard-to-count.png);">
+            <a class="source" href="http://www.censushardtocountmaps2020.us/">source</a>
+        </div>
+
+        <div class="slide">
+            <h2>using Mapbox tiles in Carto</h2>
+        </div>
+
+        <div class="slide" style="background-image: url(img/mapbox-share-0.png);">
+        </div>
+
+        <div class="slide" style="background-image: url(img/mapbox-share-1.png);">
+        </div>
+
+        <div class="slide" style="background-image: url(img/mapbox-share-2.png);">
+        </div>
+
+        <div class="slide" style="background-image: url(img/mapbox-share-3.png);">
+        </div>
+
+        <div class="slide" style="background-image: url(img/carto-basemap.png);">
+        </div>
+
+        <div class="slide" style="background-image: url(img/carto-mapbox-basemap.png);">
+        </div>
+
+        <div class="slide">
+            <h2><a href="inclass.html" target="_blank">in-class exercise, part 2</a></h2>
+        </div>
+
+        <div class="slide" style="background-image: url(img/leaflet-mapbox.png);">
+        </div>
+
+        <div class="slide">
+            <h2><a href="inclass.html" target="_blank">in-class exercise, part 3</a></h2>
+        </div>
+
+        <div class="slide intermission"></div>
+
+        <div class="slide" style="background-image: url(img/mapbox-tileset-link.png);">
+        </div>
+
+        <div class="slide" style="background-image: url(img/mapbox-tileset-link.png);">
+            <h2>adding your own data to a Mapbox style</h2>
+        </div>
+
+        <div class="slide">
+            <p>1. Upload data (such as a zipped shapefile)</p>
+            <p>2. Add the tileset to your style</p>
+        </div>
+
+        <div class="slide" style="background-image: url(img/mapbox-add-tileset.png);">
+        </div>
+
+        <div class="slide" style="background-image: url(img/mapbox-upload-tileset.png);">
+        </div>
+
+        <div class="slide" style="background-image: url(img/mapbox-add-layer.png);">
+        </div>
+
+        <div class="slide" style="background-image: url(img/mapbox-data-add.png);">
+        </div>
+
+        <div class="slide">
+            <h2><a href="inclass.html" target="_blank">in-class exercise, part 4</a></h2>
+        </div>
+
+        <div class="slide" style="background-image: url(img/mapbox-pricing.png);">
+            <a class="source" href="https://www.mapbox.com/pricing/">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/mapbox-pricing.png);">
+            <h2>Mapbox isn't free</h2>
+            <a class="source" href="https://www.mapbox.com/pricing/">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/mapbox-pricing.png);">
+            <h2>but it has a pretty generous free level</h2>
+            <a class="source" href="https://www.mapbox.com/pricing/">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/mapbox-pricing.png);">
+            <h2>Glitch refreshes every time you press a key, which adds another map view</h2>
+            <a class="source" href="https://www.mapbox.com/pricing/">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/mapbox-pricing.png);">
+            <h2>you might want to use other tiles than Mapbox when coding</h2>
+            <a class="source" href="https://www.mapbox.com/pricing/">source</a>
+        </div>
+
+    </body>
+</html>
