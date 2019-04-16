@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Class 12 | Advanced GIS</title>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+        <link href='https://fonts.googleapis.com/css?family=Alegreya Sans' rel='stylesheet' type='text/css'>
+
+        <link href="../css/pig.css" rel="stylesheet" type="text/css" />
+        <link href="../css/base.css" rel="stylesheet" />
+
+        <script src="../js/pig.js"></script>
+    </head>
+    <body>
+
+        <div class="slide">
+            <p>Welcome to Advanced GIS, Lecture 12</p>
+            <p>This is a web page that can be viewed as slides.</p>
+            <p>→ to move forward</p>
+            <p>← to go back</p>
+        </div>
+
+        <div class="slide">
+            <h1>Advanced GIS</h1>
+            <p>Class 12</p>
+        </div>
+
+        <div class="slide">
+          <h2>next week: project work time</h2>
+        </div>
+
+        <div class="slide">
+          <h2>following two weeks (5/2, 5/9): project presentations</h2>
+        </div>
+
+        <div class="slide">
+          <h2>now is a good time to check on missing submissions</h2>
+        </div>
+
+        <div class="slide" style="background-image: url(img/projects-2018.png);">
+            <a class="source" href="http://gpia-gis.github.io/adv-spring2018/">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/project-documentation.png);">
+            <a class="source" href="https://docs.google.com/forms/d/e/1FAIpQLSdFyP3Ie6nKv7PA3WzvupTZcUqCKMbAnCqYIDGR9XS7zydXUQ/viewform">source</a>
+        </div>
+
+        <div class="slide intermission"></div>
+
+        <div class="slide">
+          <h2>changing styles dynamcially</h2>
+        </div>
+
+        <div class="slide" style="background-image: url(img/carto-change-style.png);">
+            <a class="source" href="https://glitch.com/edit/#!/carto-change-style">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/carto-change-style2.png);">
+            <a class="source" href="https://glitch.com/edit/#!/carto-change-style">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/carto-change-style-code.png);">
+            <a class="source" href="https://glitch.com/edit/#!/carto-change-style">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/carto-zoom-0.png);">
+            <a class="source" href="https://glitch.com/edit/#!/carto-zoom">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/carto-zoom-1.png);">
+            <a class="source" href="https://glitch.com/edit/#!/carto-zoom">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/carto-zoom-2.png);">
+            <a class="source" href="https://glitch.com/edit/#!/carto-zoom">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/leaflet-draw.png);">
+            <a class="source" href="https://github.com/Leaflet/Leaflet.draw">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/carto-draw.png);">
+            <a class="source" href="https://glitch.com/edit/#!/carto-draw">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/carto-draw-1.png);">
+            <a class="source" href="https://glitch.com/edit/#!/carto-draw">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/carto-draw-1.png);">
+            <pre style="background-color: rgba(255, 255, 255, 0.8);"><code>SELECT SUM(number_of_persons_injured)
+FROM nypd_motor_vehicle_collisions
+WHERE ST_Within(
+  ST_Transform(the_geom, 2263),
+  ST_Transform(
+    ST_SetSRID(ST_GeomFromGeoJSON(<strong>geoJSON</strong>), 4326),
+    2263
+  )
+)
+</code></pre>
+        </div>
+
+        <div class="slide" style="background-image: url(img/carto-streetview.png);">
+            <a class="source" href="https://glitch.com/edit/#!/carto-streetview">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/carto-streetview.png);">
+          <h2>you can get google streetview imagery for a latitude and longitude</h2>
+            <a class="source" href="https://glitch.com/edit/#!/carto-streetview">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/carto-streetview.png);">
+          <h2>all you need is latitude, longitude, and ...</h2>
+            <a class="source" href="https://glitch.com/edit/#!/carto-streetview">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/gmaps-api-key.png);">
+            <a class="source" href="https://developers.google.com/maps/documentation/javascript/get-api-key">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/gmaps-api-key.png);">
+            <h2>an API key from google (requires a credit card)</h2>
+            <a class="source" href="https://developers.google.com/maps/documentation/javascript/get-api-key">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/streetview-docs.png);">
+            <a class="source" href="https://developers.google.com/maps/documentation/streetview/intro">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/streetview-docs.png);">
+          <h2>more info in the docs</h2>
+            <a class="source" href="https://developers.google.com/maps/documentation/streetview/intro">source</a>
+        </div>
+
+        <div class="slide intermission"></div>
+
+        <div class="slide" style="background-image: url(img/web-map-anatomy-4.jpg);">
+        </div>
+
+        <div class="slide" style="background-image: url(img/web-map-anatomy-overlay.jpg);">
+        </div>
+
+        <div class="slide" style="background-image: url(img/web-map-anatomy-overlay.jpg);">
+            <h2>you don't have to use Carto for this part</h2>
+        </div>
+
+        <div class="slide">
+            <h2>you can get your overlay data from other sources</h2>
+        </div>
+
+        <div class="slide">
+            <h2>if you have a GeoJSON, you can load that directly with Leaflet</h2>
+        </div>
+
+        <div class="slide" style="background-image: url(img/leaflet-data.png);">
+          <a href="https://glitch.com/edit/#!/superb-attention" class="source">source</a>
+        </div>
+
+        <div class="slide">
+            <h2>potential drawbacks:</h2>
+            <ul style="list-style: disc;">
+              <li>your page will load all of the data at once!</li>
+            </ul>
+        </div>
+
+        <div class="slide">
+            <h2>potential drawbacks:</h2>
+            <ul style="list-style: disc;">
+              <li>your page will load all of the data at once!</li>
+              <li>you need somewhere to host the data (Glitch or GitHub should work fine)</li>
+            </ul>
+        </div>
+
+        <div class="slide">
+            <h2>potential drawbacks:</h2>
+            <ul style="list-style: disc;">
+              <li>your page will load all of the data at once!</li>
+              <li>you need somewhere to host the data (Glitch or GitHub should work fine)</li>
+              <li>you aren't using Carto, so styling and filtering is different</li>
+            </ul>
+        </div>
+
+        <div class="slide">
+            <h2>using the open data API</h2>
+        </div>
+
+        <div class="slide" style="background-image: url(img/open-data-0.png);">
+        </div>
+
+        <div class="slide" style="background-image: url(img/open-data-1.png);">
+        </div>
+
+        <div class="slide" style="background-image: url(img/open-data-2.png);">
+        </div>
+
+        <div class="slide" style="background-image: url(img/open-data-3.png);">
+          <a href="https://data.cityofnewyork.us/resource/fhrw-4uyv.geojson?$limit=5&borough=QUEENS" class="source">source</a>
+        </div>
+
+        <div class="slide">
+            <h2>an API gives you access to data through a URL</h2>
+        </div>
+
+        <div class="slide">
+            <h2>you can often filter this data in the URL (so you load less data)</h2>
+        </div>
+
+        <div class="slide" style="background-image: url(img/leaflet-api.png);">
+          <a href="https://glitch.com/edit/#!/tall-pediatrician" class="source">source</a>
+        </div>
+
+        <div class="slide">
+            <h2>API benefits:</h2>
+            <ul style="list-style: disc;">
+              <li>you always get the latest data</li>
+            </ul>
+        </div>
+
+        <div class="slide">
+            <h2>API benefits:</h2>
+            <ul style="list-style: disc;">
+              <li>you always get the latest data</li>
+              <li>you don't have to store the data</li>
+            </ul>
+        </div>
+
+        <div class="slide">
+            <h2>API potential drawbacks:</h2>
+            <ul style="list-style: disc;">
+              <li>your page will still load all of the data it needs to show</li>
+            </ul>
+        </div>
+
+        <div class="slide">
+            <h2>API potential drawbacks:</h2>
+            <ul style="list-style: disc;">
+              <li>your page will still load all of the data it needs to show</li>
+              <li>if the server hosting the API goes away or moves, your page breaks</li>
+            </ul>
+        </div>
+
+        <div class="slide intermission"></div>
+
+        <div class="slide" style="background-image: url(img/osm-website.png);">
+        </div>
+
+        <div class="slide" style="background-image: url(img/osm-website.png);">
+            <h2>OpenStreetMap has an API you can use</h2>
+        </div>
+
+        <div class="slide" style="background-image: url(img/osm-show-me-the-way.gif);">
+            <a class="source" href="http://osmlab.github.io/show-me-the-way/">show me the way</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/osm-draw.png);">
+        </div>
+
+        <div class="slide" style="background-image: url(img/osm-draw.png);">
+            <h2>"the free wiki map of the world"</h2>
+        </div>
+
+        <div class="slide">
+            <h2>what does the data look like?</h2>
+        </div>
+
+        <div class="slide" style="background-image: url(img/osm-shapes.png);">
+        </div>
+
+        <div class="slide" style="background-image: url(img/osm-shapes-nodes.png);">
+        </div>
+
+        <div class="slide" style="background-image: url(img/osm-shapes-ways.png);">
+        </div>
+
+        <div class="slide" style="background-image: url(img/osm-shapes-closed-ways.png);">
+        </div>
+
+        <div class="slide">
+            <h2>shapes</h2>
+            <ul style="list-style: disc outside; padding-left: 50px;">
+                <li>nodes (points)</li>
+                <li>ways (lines)</li>
+                <li>closed ways (polygons)</li>
+            </ul>
+        </div>
+
+        <div class="slide">
+            <h2>features are "tagged" with attributes</h2>
+        </div>
+
+        <div class="slide" style="background-image: url(img/qgis-attribute-table.png);">
+        </div>
+
+        <div class="slide" style="background-image: url(img/osm-tags-union-square.png);">
+        </div>
+
+        <div class="slide" style="background-image: url(img/osm-tags-union-square.png);">
+          <h2>leisure=park</h2>
+        </div>
+
+        <div class="slide" style="background-image: url(img/osm-tags-bmt-broadway.png);">
+        </div>
+
+        <div class="slide" style="background-image: url(img/osm-tags-bmt-broadway.png);">
+          <h2>railway=subway</h2>
+        </div>
+
+        <div class="slide">
+            <h2>there are a few ways to figure out how people tag features</h2>
+        </div>
+
+        <div class="slide">
+            <h2>1. look at the map</h2>
+        </div>
+
+        <div class="slide" style="background-image: url(img/tags-map-0.png);">
+        </div>
+
+        <div class="slide" style="background-image: url(img/tags-map-1.png);">
+        </div>
+
+        <div class="slide" style="background-image: url(img/tags-map-2.png);">
+        </div>
+
+        <div class="slide">
+            <h2>2. look at the wiki</h2>
+        </div>
+
+        <div class="slide" style="background-image: url(img/tags-wiki-0.png);">
+        </div>
+
+        <div class="slide" style="background-image: url(img/tags-wiki-1.png);">
+        </div>
+
+        <div class="slide" style="background-image: url(img/tags-wiki-2.png);">
+        </div>
+
+        <div class="slide">
+            <h2>getting data using overpass turbo</h2>
+        </div>
+
+        <div class="slide" style="background-image: url(img/overpass-turbo-example.png);">
+            <a href="http://overpass-turbo.eu/s/opx" class="source">source</a>
+        </div>
+
+        <div class="slide" style="background-image: url(img/overpass-wizard.png);">
+        </div>
+
+        <div class="slide" style="background-image: url(img/overpass-export.png);">
+        </div>
+
+        <div class="slide" style="background-image: url(img/osm-api.png);">
+          <a href="https://glitch.com/edit/#!/first-zone" class="source">source</a>
+        </div>
+
+    </body>
+</html>
